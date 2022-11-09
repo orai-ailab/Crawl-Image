@@ -231,7 +231,7 @@ class AutoCrawler:
             print('Collecting links... {} from {}'.format(keyword, site_name))
 
             if site_code == Sites.FLICKR:
-                links = collect.google(keyword, add_url)
+                links = collect.flickr(keyword, add_url)
 
             elif site_code == Sites.NAVER:
                 links = collect.naver(keyword, add_url)
