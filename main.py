@@ -237,7 +237,7 @@ class AutoCrawler:
                 links = collect.naver(keyword, add_url)
 
             elif site_code == Sites.FLICKR_FULL:
-                links = collect.flickr(keyword, add_url)
+                links = collect.flickr_full(keyword, add_url)
 
             elif site_code == Sites.NAVER_FULL:
                 links = collect.naver_full(keyword, add_url)
