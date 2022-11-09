@@ -77,4 +77,4 @@ You can make your own crawler by changing collect_links.py
 
 # Issues
 
-As flickr, naver site consistently changes, please make issues if it doesn't work.
+As flickr, naver, pexels site consistently changes, please make issues if it doesn't work.
