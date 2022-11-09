@@ -30,16 +30,9 @@ async def naver(label: str = Form(description='label text')
     return res
 
 @app.post("/flickr")
-async def flickr(label: str = Form(description='label text')
+async def flickr(label: str = Form(description='label text'),
+                 page: int = Form(description='number page')
                 ):
-    """Crawl Image From Naver (~ 400 image)
-
-    Args:
-        label (str, optional): _description_. Defaults to Form(description='label text').
-
-    Returns:
-        _type_: _description_
-    """
     collect = CollectLinks(no_gui=True, proxy=False)
     links = collect.naver(keyword=label,add_url='&face=1')
     res = {
