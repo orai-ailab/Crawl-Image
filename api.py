@@ -41,7 +41,7 @@ app = FastAPI(
 )
 
 
-def __init__(self, no_gui=False, proxy=None):
+def __init__(no_gui=False, proxy=None):
         executable = ''
         if platform.system() == 'Windows':
             print('Detected OS : Windows')
