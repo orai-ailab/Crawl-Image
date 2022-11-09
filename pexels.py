@@ -23,7 +23,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-PEXELS_API_KEY = os.getenv('')
+PEXELS_API_KEY = os.getenv('PEXELS_API_KEY')
 # Create API object
 api = API(PEXELS_API_KEY)
 list = []
