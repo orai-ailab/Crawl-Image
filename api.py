@@ -14,7 +14,7 @@ app = FastAPI(
 @app.post("/naver")
 async def naver(label: str = Form(description='label text')
                 ):
-    """_summary_
+    """Crawl Image From Naver (~ 500 image)
 
     Args:
         label (str, optional): _description_. Defaults to Form(description='label text').
