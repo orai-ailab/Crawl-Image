@@ -360,7 +360,7 @@ if __name__ == '__main__':
 
     _skip = False if str(args.skip).lower() == 'false' else True
     _threads = args.threads
-    _google = False if str(args.google).lower() == 'false' else True
+    _flickr = False if str(args.google).lower() == 'false' else True
     _naver = False if str(args.naver).lower() == 'false' else True
     _full = False if str(args.full).lower() == 'false' else True
     _face = False if str(args.face).lower() == 'false' else True
@@ -377,9 +377,9 @@ if __name__ == '__main__':
 
     print(
         'Options - skip:{}, threads:{}, google:{}, naver:{}, full_resolution:{}, face:{}, no_gui:{}, limit:{}, _proxy_list:{}'
-            .format(_skip, _threads, _google, _naver, _full, _face, _no_gui, _limit, _proxy_list))
+            .format(_skip, _threads, _flickr, _naver, _full, _face, _no_gui, _limit, _proxy_list))
 
     crawler = AutoCrawler(skip_already_exist=_skip, n_threads=_threads,
-                          do_google=_google, do_naver=_naver, full_resolution=_full,
+                          do_flickr=_flickr, do_naver=_naver, full_resolution=_full,
                           face=_face, no_gui=_no_gui, limit=_limit, proxy_list=_proxy_list)
     crawler.do_crawling()
