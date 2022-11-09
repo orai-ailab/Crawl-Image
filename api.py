@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Form
-import collect_links as collect
+from collect_links import CollectLinks
 
 app = FastAPI(
     title="API for AI Market",
@@ -14,5 +14,5 @@ app = FastAPI(
 async def naver(label: str = Form(description='label text'),
                 page: int = Form(description='Page crawl (1 page about 80 image)')
                 ):
-    collect
+    collect.
     
