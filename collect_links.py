@@ -209,8 +209,8 @@ class CollectLinks:
             elem.send_keys(Keys.PAGE_DOWN)
             time.sleep(0.2)
 
-        imgs = self.browser.find_elements(By.CLASS_NAME,
-                                          'photo-list-photo-container')
+        imgs = self.browser.find_elements(By.XPATH,
+                                          '//*[@id="yui_3_16_0_1_1667964780192_87789"]/img')
 
         print('Scraping links')
 
