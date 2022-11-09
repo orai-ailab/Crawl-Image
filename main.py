@@ -52,12 +52,12 @@ class Sites:
 
 
 class AutoCrawler:
-    def __init__(self, skip_already_exist=True, n_threads=4, do_google=True, do_naver=True, download_path='download',
+    def __init__(self, skip_already_exist=True, n_threads=4, do_flickr=True, do_naver=True, download_path='download',
                  full_resolution=False, face=False, no_gui=False, limit=0, proxy_list=None):
         """
         :param skip_already_exist: Skips keyword already downloaded before. This is needed when re-downloading.
         :param n_threads: Number of threads to download.
-        :param do_google: Download from google.com (boolean)
+        :param do_flickr: Download from flickr.com (boolean)
         :param do_naver: Download from naver.com (boolean)
         :param download_path: Download folder path
         :param full_resolution: Download full resolution image instead of thumbnails (slow)
