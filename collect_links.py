@@ -118,7 +118,7 @@ class CollectLinks:
         time.sleep(1)
         links = []
         
-        while page:
+        for i in range(page):
             print('Scrolling down')
             elem = self.browser.find_element(By.TAG_NAME, "body")
 
