@@ -26,6 +26,8 @@ python3 main.py [--skip true] [--threads 4] [--flickr true] [--naver true] [--fu
 
 --naver true       Download from naver.com (boolean)
 
+--pexels true      Download from pexels.com (boolean)
+
 --full false       Download full resolution image instead of thumbnails (slow)
 
 --face false       Face search mode
