@@ -223,8 +223,8 @@ async def naver(label: str = Form(description='label text')
     Returns:
         _type_: _description_ 
     """
-    collect = __init__(no_gui=True, proxy=False)
-    links = collect.naver(keyword=label,add_url='&face=1')
+    browser = __init__(no_gui=True, proxy=False)
+    links = naver(browser=browser,keyword=label,add_url='&face=1')
     res = {
         'data': links
     }
