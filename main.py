@@ -299,6 +299,13 @@ class AutoCrawler:
                 else:
                     tasks.append([keyword, Sites.NAVER])
 
+            if self.do_pexels and not pexels_done:
+                if self.full_resolution:
+                    tasks.append([keyword, Sites.NAVER_FULL])
+                else:
+                    tasks.append([keyword, Sites.NAVER])
+
+
         pool = Pool(self.n_threads)
         pool.map_async(self.download, tasks)
         pool.close()
