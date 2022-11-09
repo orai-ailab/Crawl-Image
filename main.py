@@ -271,7 +271,7 @@ class AutoCrawler:
                 print('Skipping done task {}'.format(dir_name))
                 continue
 
-            if self.do_google and not google_done:
+            if self.do_flickr and not google_done:
                 if self.full_resolution:
                     tasks.append([keyword, Sites.GOOGLE_FULL])
                 else:
