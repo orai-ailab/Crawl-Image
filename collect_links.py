@@ -210,7 +210,7 @@ class CollectLinks:
             time.sleep(0.3)
 
         imgs = self.browser.find_elements(By.XPATH,
-                                          '//*[@id="yui_3_16_0_1_1667964780192_98450"]>img')
+                                          '//*[@id="yui_3_16_0_1_1667964780192_98450"]/img')
 
         print('Scraping links')
 
