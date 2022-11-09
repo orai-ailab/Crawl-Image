@@ -265,13 +265,13 @@ class AutoCrawler:
 
         for keyword in keywords:
             dir_name = '{}/{}'.format(self.download_path, keyword)
-            google_done = os.path.exists(os.path.join(os.getcwd(), dir_name, 'google_done'))
+            flickr_done = os.path.exists(os.path.join(os.getcwd(), dir_name, 'google_done'))
             naver_done = os.path.exists(os.path.join(os.getcwd(), dir_name, 'naver_done'))
-            if google_done and naver_done and self.skip:
+            if flickr_done and naver_done and self.skip:
                 print('Skipping done task {}'.format(dir_name))
                 continue
 
-            if self.do_flickr and not google_done:
+            if self.do_flickr and not flickr_done:
                 if self.full_resolution:
                     tasks.append([keyword, Sites.GOOGLE_FULL])
                 else:
