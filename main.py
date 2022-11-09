@@ -46,7 +46,7 @@ class Sites:
     @staticmethod
     def get_face_url(code):
         if code == Sites.FLICKR or Sites.FLICKR_FULL:
-            return "&tbs=itp:face"
+            return ""
         if code == Sites.NAVER or Sites.NAVER_FULL:
             return "&face=1"
 
