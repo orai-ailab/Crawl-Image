@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Form
-
+import main
 
 app = FastAPI(
     title="API for AI Market",
