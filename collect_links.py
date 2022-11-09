@@ -185,7 +185,7 @@ class CollectLinks:
         return links
     
     
-    def pexels_full(self, keyword, page, add_url=""):
+    def pexels(self, keyword, page, add_url=""):
         self.browser.get('https://github.com/hoangks5')
         PEXELS_API_KEY = os.getenv('PEXELS_API_KEY')
         api = API(PEXELS_API_KEY)
