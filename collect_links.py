@@ -148,46 +148,13 @@ class CollectLinks:
         print(len(links))
         return links
 
-    def flickr(self, keyword, add_url=""):
-        self.browser.get(
-            "https://flickr.com/search/?text={}&view_all=0{}".format(keyword, add_url))
-
-        time.sleep(1)
-
-        print('Scrolling down')
-
-        elem = self.browser.find_element(By.TAG_NAME, "body")
-
-        for i in range(60):
-            elem.send_keys(Keys.PAGE_DOWN)
-            time.sleep(0.3)
-
-        imgs = self.browser.find_elements(By.XPATH,
-                                          '//*[@class="photo-list-photo-container"]/img')
-
-        print('Scraping links')
-
-        links = []
-
-        for img in imgs:
-            try:
-                src = img.get_attribute("src")
-                if src[0] != 'd':
-                    links.append(src)
-            except Exception as e:
-                print('[Exception occurred while collecting links from naver] {}'.format(e))
-
-        links = self.remove_duplicates(links)
-
-        print('Collect links done. Site: {}, Keyword: {}, Total: {}'.format('naver', keyword, len(links)))
-        self.browser.close()
-        return links
+    
 
     
 
-    def flickr_full(self, keyword, add_url=""):
+    def flickr_full(self, keyword, page, add_url=""):
         links = []
-        for page in range(3):
+        for i in range(page):
             self.browser.get(
                 "https://flickr.com/search/?text="+keyword+"&view_all="+str(page)+add_url)
 
