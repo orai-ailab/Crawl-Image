@@ -165,7 +165,7 @@ class CollectLinks:
 
             for i in range(60):
                 elem.send_keys(Keys.PAGE_DOWN)
-                time.sleep(0.3)
+                time.sleep(0.2)
 
             imgs = self.browser.find_elements(By.XPATH,
                                             '//*[@class="photo-list-photo-container"]/img')
