@@ -239,33 +239,35 @@ class CollectLinks:
         return links
 
     def flickr_full(self, keyword, add_url=""):
-        self.browser.get(
-            "https://flickr.com/search/?text={}&view_all=0{}".format(keyword, add_url))
-
-        time.sleep(1)
-
-        print('Scrolling down')
-
-        elem = self.browser.find_element(By.TAG_NAME, "body")
-
-        for i in range(60):
-            elem.send_keys(Keys.PAGE_DOWN)
-            time.sleep(0.3)
-
-        imgs = self.browser.find_elements(By.XPATH,
-                                          '//*[@class="photo-list-photo-container"]/img')
-
-        print('Scraping links')
-
         links = []
+        for i in range(10):
+            self.browser.get(
+                "https://flickr.com/search/?text={}&view_all=0{}".format(keyword, add_url))
 
-        for img in imgs:
-            try:
-                src = img.get_attribute("src")
-                if src[0] != 'd':
-                    links.append(src)
-            except Exception as e:
-                print('[Exception occurred while collecting links from naver] {}'.format(e))
+            time.sleep(1)
+
+            print('Scrolling down')
+
+            elem = self.browser.find_element(By.TAG_NAME, "body")
+
+            for i in range(60):
+                elem.send_keys(Keys.PAGE_DOWN)
+                time.sleep(0.3)
+
+            imgs = self.browser.find_elements(By.XPATH,
+                                            '//*[@class="photo-list-photo-container"]/img')
+
+            print('Scraping links')
+
+            
+
+            for img in imgs:
+                try:
+                    src = img.get_attribute("src")
+                    if src[0] != 'd':
+                        links.append(src)
+                except Exception as e:
+                    print('[Exception occurred while collecting links from naver] {}'.format(e))
 
         links = self.remove_duplicates(links)
 
