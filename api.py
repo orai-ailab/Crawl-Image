@@ -68,4 +68,5 @@ async def pexels(label: str = Form(description='label text'),
     res = {
         'data': links
     }
+    print(len(links))
     return res
