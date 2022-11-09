@@ -22,7 +22,7 @@ python3 main.py [--skip true] [--threads 4] [--google true] [--naver true] [--fu
 
 --threads 4        Number of threads to download.
 
---google true      Download from google.com (boolean)
+--flickr true      Download from flickr.com (boolean)
 
 --naver true       Download from naver.com (boolean)
 
