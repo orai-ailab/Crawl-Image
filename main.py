@@ -41,7 +41,7 @@ class Sites:
         elif code == Sites.FLICKR:
             return 'flickr'
         elif code == Sites.FLICKR_FULL:
-            return 'flickr'
+            return 'flickr_full'
 
     @staticmethod
     def get_face_url(code):
