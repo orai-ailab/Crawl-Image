@@ -145,6 +145,7 @@ class CollectLinks:
 
         print('Collect links done. Site: {}, Keyword: {}, Total: {}'.format('naver', keyword, len(links)))
         self.browser.close()
+        print(len(links))
         return links
 
     def flickr(self, keyword, add_url=""):
