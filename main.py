@@ -36,8 +36,6 @@ class Sites:
     def get_text(code):
         if code == Sites.NAVER:
             return 'naver'
-        elif code == Sites.GOOGLE_FULL:
-            return 'google'
         elif code == Sites.NAVER_FULL:
             return 'naver'
 
