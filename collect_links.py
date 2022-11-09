@@ -277,41 +277,20 @@ class CollectLinks:
     
     
     def pexels(self, keyword, add_url=""):
-        links = []
-        for page in range(3):
-            self.browser.get(
-                "https://flickr.com/search/?text="+keyword+"&view_all="+str(page)+add_url)
+        from pexels_api import API
+        import os
+        from dotenv import load_dotenv
+        load_dotenv()
 
-            time.sleep(1)
+        PEXELS_API_KEY = os.getenv('PEXELS_API_KEY')
+        api = API(PEXELS_API_KEY)
+        list = []
 
-            print('Scrolling down')
-
-            elem = self.browser.find_element(By.TAG_NAME, "body")
-
-            for i in range(60):
-                elem.send_keys(Keys.PAGE_DOWN)
-                time.sleep(0.3)
-
-            imgs = self.browser.find_elements(By.XPATH,
-                                            '//*[@class="photo-list-photo-container"]/img')
-
-            print('Scraping links')
-
-            
-
-            for img in imgs:
-                try:
-                    src = img.get_attribute("src")
-                    if src[0] != 'd':
-                        links.append(src)
-                except Exception as e:
-                    print('[Exception occurred while collecting links from naver] {}'.format(e))
-
-        links = self.remove_duplicates(links)
-
-        print('Collect links done. Site: {}, Keyword: {}, Total: {}'.format('naver', keyword, len(links)))
-        self.browser.close()
-        return links
+        for i in range(1,50,1):
+            api.search('kitten', page=i, results_per_page=80)
+            photos = api.get_entries()
+            for photo in photos:
+                list.append(photo.original)
 
 
 
