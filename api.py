@@ -14,7 +14,7 @@ app = FastAPI(
 @app.post("/naver")
 async def naver(label: str = Form(description='label text')
                 ):
-    """Crawl Image From Naver (~ 400 image)
+    """Crawl Image From Naver.com (~ 400 image)
 
     Args:
         label (str, optional): _description_. Defaults to Form(description='label text').
@@ -31,8 +31,17 @@ async def naver(label: str = Form(description='label text')
 
 @app.post("/flickr")
 async def flickr(label: str = Form(description='label text'),
-                 page: int = Form(description='number page')
+                 page: int = Form(description='1 page =~ 200-300 image')
                 ):
+    """Crawl Image From Flickr.com
+
+    Args:
+        label (str, optional): _description_. Defaults to Form(description='label text').
+        page (int, optional): _description_. Defaults to Form(description='number page').
+
+    Returns:
+        _type_: _description_
+    """
     collect = CollectLinks(no_gui=True, proxy=False)
     links = collect.flickr(keyword=label,page=page,add_url='')
     res = {
