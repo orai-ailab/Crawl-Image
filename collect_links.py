@@ -159,7 +159,6 @@ class CollectLinks:
                 "https://flickr.com/search/?text="+keyword+"&view_all="+str(page)+add_url)
 
             time.sleep(1)
-
             print('Scrolling down')
 
             elem = self.browser.find_element(By.TAG_NAME, "body")
