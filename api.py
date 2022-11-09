@@ -14,6 +14,14 @@ app = FastAPI(
 @app.post("/naver")
 async def naver(label: str = Form(description='label text')
                 ):
+    """_summary_
+
+    Args:
+        label (str, optional): _description_. Defaults to Form(description='label text').
+
+    Returns:
+        _type_: _description_
+    """
     collect = CollectLinks(no_gui=False, proxy=False)
     links = collect.naver(keyword=label,add_url='&face=1')
     res = {
