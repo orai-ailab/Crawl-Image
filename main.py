@@ -367,6 +367,7 @@ if __name__ == '__main__':
     parser.add_argument('--threads', type=int, default=4, help='Number of threads to download.')
     parser.add_argument('--flickr', type=str, default='true', help='Download from flickr.com (boolean)')
     parser.add_argument('--naver', type=str, default='true', help='Download from naver.com (boolean)')
+    parser.add_argument('--pexels', type=str, default='true', help='Download from pexels.com (boolean)')
     parser.add_argument('--full', type=str, default='false',
                         help='Download full resolution image instead of thumbnails (slow)')
     parser.add_argument('--face', type=str, default='false', help='Face search mode')
