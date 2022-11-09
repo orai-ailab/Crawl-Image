@@ -65,18 +65,18 @@ def __init__(no_gui=False, proxy=None):
             chrome_options.add_argument('--headless')
         if proxy:
             chrome_options.add_argument("--proxy-server={}".format(proxy))
-        self.browser = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
+        browser = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
 
         browser_version = 'Failed to detect version'
         chromedriver_version = 'Failed to detect version'
         major_version_different = False
 
-        if 'browserVersion' in self.browser.capabilities:
-            browser_version = str(self.browser.capabilities['browserVersion'])
+        if 'browserVersion' in browser.capabilities:
+            browser_version = str(browser.capabilities['browserVersion'])
 
-        if 'chrome' in self.browser.capabilities:
-            if 'chromedriverVersion' in self.browser.capabilities['chrome']:
-                chromedriver_version = str(self.browser.capabilities['chrome']['chromedriverVersion']).split(' ')[0]
+        if 'chrome' in browser.capabilities:
+            if 'chromedriverVersion' in browser.capabilities['chrome']:
+                chromedriver_version = str(browser.capabilities['chrome']['chromedriverVersion']).split(' ')[0]
 
         if browser_version.split('.')[0] != chromedriver_version.split('.')[0]:
             major_version_different = True
