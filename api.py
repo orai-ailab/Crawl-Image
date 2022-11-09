@@ -89,6 +89,123 @@ def __init__(no_gui=False, proxy=None):
                 'Download correct version at "http://chromedriver.chromium.org/downloads" and place in "./chromedriver"')
         print('_________________________________')
         return browser
+    
+    
+def get_scroll(self):
+        pos = self.browser.execute_script("return window.pageYOffset;")
+        return pos
+
+def wait_and_click(self, xpath):
+    #  Sometimes click fails unreasonably. So tries to click at all cost.
+    try:
+        w = WebDriverWait(self.browser, 15)
+        elem = w.until(EC.element_to_be_clickable((By.XPATH, xpath)))
+        elem.click()
+        self.highlight(elem)
+    except Exception as e:
+        print('Click time out - {}'.format(xpath))
+        print('Refreshing browser...')
+        self.browser.refresh()
+        time.sleep(2)
+        return self.wait_and_click(xpath)
+
+    return elem
+
+def highlight(self, element):
+    self.browser.execute_script("arguments[0].setAttribute('style', arguments[1]);", element,
+                                "background: yellow; border: 2px solid red;")
+
+
+def remove_duplicates(_list):
+    return list(dict.fromkeys(_list))
+
+
+def naver(browser, keyword, add_url=""):
+    browser.get(
+        "https://search.naver.com/search.naver?where=image&sm=tab_jum&query={}{}".format(keyword, add_url))
+
+    time.sleep(1)
+    links = []
+    
+    
+    print('Scrolling down')
+    elem = browser.find_element(By.TAG_NAME, "body")
+
+    for i in range(60):
+        elem.send_keys(Keys.PAGE_DOWN)
+        time.sleep(0.2)
+
+    imgs = browser.find_elements(By.XPATH,
+                                    '//div[@class="photo_bx api_ani_send _photoBox"]//img[@class="_image _listImage"]')
+
+    print('Scraping links')
+
+    
+
+    for img in imgs:
+        try:
+            src = img.get_attribute("src")
+            if src[0] != 'd':
+                links.append(src)
+        except Exception as e:
+            print('[Exception occurred while collecting links from naver] {}'.format(e))
+
+    links = remove_duplicates(links)
+
+    print('Collect links done. Site: {}, Keyword: {}, Total: {}'.format('naver', keyword, len(links)))
+    browser.close()
+    print(len(links))
+    return links
+
+    
+
+    
+
+def flickr(browser, keyword, page, add_url=""):
+    links = []
+    for i in range(page):
+        browser.get(
+            "https://flickr.com/search/?text="+keyword+"&view_all="+str(page)+add_url)
+
+        time.sleep(1)
+        print('Scrolling down')
+
+        elem = browser.find_element(By.TAG_NAME, "body")
+
+        for i in range(60):
+            elem.send_keys(Keys.PAGE_DOWN)
+            time.sleep(0.2)
+
+        imgs = browser.find_elements(By.XPATH,
+                                        '//*[@class="photo-list-photo-container"]/img')
+
+        print('Scraping links')
+        for img in imgs:
+            try:
+                src = img.get_attribute("src")
+                if src[0] != 'd':
+                    links.append(src)
+            except Exception as e:
+                print('[Exception occurred while collecting links from naver] {}'.format(e))
+
+    links = remove_duplicates(links)
+    print('Collect links done. Site: {}, Keyword: {}, Total: {}'.format('naver', keyword, len(links)))
+    browser.close()
+    return links
+
+
+def pexels(keyword, page, add_url=""):
+    PEXELS_API_KEY = os.getenv('PEXELS_API_KEY')
+    api = API(PEXELS_API_KEY)
+    links = []
+
+    for i in range(1, page, 1):
+        api.search(keyword, page=i, results_per_page=80)
+        photos = api.get_entries()
+        for photo in photos:
+            links.append(photo.original)
+    links = remove_duplicates(links)
+    return links
 
 
 
@@ -106,7 +223,7 @@ async def naver(label: str = Form(description='label text')
     Returns:
         _type_: _description_ 
     """
-    collect = CollectLinks(no_gui=True, proxy=False)
+    collect = __init__(no_gui=True, proxy=False)
     links = collect.naver(keyword=label,add_url='&face=1')
     res = {
         'data': links
