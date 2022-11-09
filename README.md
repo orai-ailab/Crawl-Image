@@ -14,7 +14,7 @@
 # Arguments
 usage:
 ```
-python3 main.py --skip true --threads 4 --flickr true --naver true --full false --face false --no_gui auto --limit 0
+python3 main.py --skip true --threads 4 --flickr true --naver true --pexels true --full false --face false --no_gui auto --limit 0
 ```
 
 ```
