@@ -7,3 +7,4 @@ webdriver-manager
 pexels-api
 fastapi
 uvicorn
+python-multipart
