@@ -11,6 +11,15 @@ app = FastAPI(
     redoc_url='/redoc'
 )
 
+
+
+
+
+
+
+
+
+
 @app.post("/naver")
 async def naver(label: str = Form(description='label text')
                 ):
