@@ -1,2 +1,2 @@
 milk
-egg 
+egg
