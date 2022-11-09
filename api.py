@@ -194,7 +194,7 @@ def flickr(browser, keyword, page, add_url=""):
     return links
 
 
-def pexels(keyword, page, add_url=""):
+def pexels(keyword, page):
     PEXELS_API_KEY = os.getenv('PEXELS_API_KEY')
     api = API(PEXELS_API_KEY)
     links = []
@@ -243,8 +243,8 @@ async def flickr(label: str = Form(description='label text'),
     Returns:
         _type_: _description_
     """
-    collect = CollectLinks(no_gui=True, proxy=False)
-    links = collect.flickr(keyword=label,page=page,add_url='')
+    browser = __init__(no_gui=True, proxy=False)
+    links = browser.flickr(keyword=label,page=page,add_url='')
     res = {
         'data': links
     }
@@ -264,8 +264,7 @@ async def pexels(label: str = Form(description='label text'),
     Returns:
         _type_: _description_
     """
-    collect = CollectLinks(no_gui=True, proxy=False)
-    links = collect.pexels(keyword=label,page=page,add_url='')
+    links = pexels(keyword=label,page=page,add_url='')
     res = {
         'data': links
     }
