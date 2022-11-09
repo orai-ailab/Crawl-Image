@@ -284,13 +284,13 @@ class CollectLinks:
 
         PEXELS_API_KEY = os.getenv('PEXELS_API_KEY')
         api = API(PEXELS_API_KEY)
-        list = []
+        links = []
 
         for i in range(1,50,1):
             api.search(keyword, page=i, results_per_page=80)
             photos = api.get_entries()
             for photo in photos:
-                list.append(photo.original)
+                links.append(photo.original)
 
 
 
