@@ -386,6 +386,7 @@ if __name__ == '__main__':
     _threads = args.threads
     _flickr = False if str(args.flickr).lower() == 'false' else True
     _naver = False if str(args.naver).lower() == 'false' else True
+    _pexels = False if str(args.).lower() == 'false' else True
     _full = False if str(args.full).lower() == 'false' else True
     _face = False if str(args.face).lower() == 'false' else True
     _limit = int(args.limit)
