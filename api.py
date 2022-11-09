@@ -80,7 +80,14 @@ def __init__(self, no_gui=False, proxy=None):
 
         if browser_version.split('.')[0] != chromedriver_version.split('.')[0]:
             major_version_different = True
-
+        print('_________________________________')
+        print('Current web-browser version:\t{}'.format(browser_version))
+        print('Current chrome-driver version:\t{}'.format(chromedriver_version))
+        if major_version_different:
+            print('warning: Version different')
+            print(
+                'Download correct version at "http://chromedriver.chromium.org/downloads" and place in "./chromedriver"')
+        print('_________________________________')
 
 
 
