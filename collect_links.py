@@ -152,7 +152,7 @@ class CollectLinks:
 
     
 
-    def flickr_full(self, keyword, page, add_url=""):
+    def flickr(self, keyword, page, add_url=""):
         links = []
         for i in range(page):
             self.browser.get(
@@ -171,9 +171,6 @@ class CollectLinks:
                                             '//*[@class="photo-list-photo-container"]/img')
 
             print('Scraping links')
-
-            
-
             for img in imgs:
                 try:
                     src = img.get_attribute("src")
