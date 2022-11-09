@@ -69,7 +69,7 @@ class AutoCrawler:
 
         self.skip = skip_already_exist
         self.n_threads = n_threads
-        self.do_google = do_google
+        self.do_flickr = do_flickr
         self.do_naver = do_naver
         self.download_path = download_path
         self.full_resolution = full_resolution
@@ -230,13 +230,13 @@ class AutoCrawler:
         try:
             print('Collecting links... {} from {}'.format(keyword, site_name))
 
-            if site_code == Sites.GOOGLE:
+            if site_code == Sites.FLICKR:
                 links = collect.google(keyword, add_url)
 
             elif site_code == Sites.NAVER:
                 links = collect.naver(keyword, add_url)
 
-            elif site_code == Sites.GOOGLE_FULL:
+            elif site_code == Sites.FLICKR_FULL:
                 links = collect.google_full(keyword, add_url)
 
             elif site_code == Sites.NAVER_FULL:
