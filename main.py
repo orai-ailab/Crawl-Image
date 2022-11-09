@@ -405,6 +405,6 @@ if __name__ == '__main__':
             .format(_skip, _threads, _flickr, _naver, _full, _face, _no_gui, _limit, _proxy_list))
 
     crawler = AutoCrawler(skip_already_exist=_skip, n_threads=_threads,
-                          do_flickr=_flickr, do_naver=_naver, full_resolution=_full,
+                          do_flickr=_flickr, do_naver=_naver,do_pexels=_pexels, full_resolution=_full,
                           face=_face, no_gui=_no_gui, limit=_limit, proxy_list=_proxy_list)
     crawler.do_crawling()
