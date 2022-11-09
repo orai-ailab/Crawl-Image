@@ -25,6 +25,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 import os.path as osp
+from pexels_api import API
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 
 class CollectLinks:
@@ -277,10 +281,6 @@ class CollectLinks:
     
     
     def pexels(self, keyword, add_url=""):
-        from pexels_api import API
-        import os
-        from dotenv import load_dotenv
-        load_dotenv()
 
         PEXELS_API_KEY = os.getenv('PEXELS_API_KEY')
         api = API(PEXELS_API_KEY)
