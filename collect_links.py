@@ -242,7 +242,7 @@ class CollectLinks:
         links = []
         for page in range(3):
             self.browser.get(
-                "https://flickr.com/search/?text={}&view_all="+str(page)+"{}".format(keyword, add_url))
+                "https://flickr.com/search/?text="+keyword+"&view_all="+str(page)+add_url
 
             time.sleep(1)
 
