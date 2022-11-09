@@ -300,7 +300,7 @@ class CollectLinks:
         api = API(PEXELS_API_KEY)
         links = []
 
-        for i in range(1,50,1):
+        for i in range(1,100,1):
             api.search(keyword, page=i, results_per_page=80)
             photos = api.get_entries()
             for photo in photos:
