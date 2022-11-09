@@ -265,7 +265,7 @@ class AutoCrawler:
 
         for keyword in keywords:
             dir_name = '{}/{}'.format(self.download_path, keyword)
-            flickr_done = os.path.exists(os.path.join(os.getcwd(), dir_name, 'google_done'))
+            flickr_done = os.path.exists(os.path.join(os.getcwd(), dir_name, 'flickr_done'))
             naver_done = os.path.exists(os.path.join(os.getcwd(), dir_name, 'naver_done'))
             if flickr_done and naver_done and self.skip:
                 print('Skipping done task {}'.format(dir_name))
@@ -342,7 +342,7 @@ if __name__ == '__main__':
     parser.add_argument('--skip', type=str, default='true',
                         help='Skips keyword already downloaded before. This is needed when re-downloading.')
     parser.add_argument('--threads', type=int, default=4, help='Number of threads to download.')
-    parser.add_argument('--google', type=str, default='true', help='Download from google.com (boolean)')
+    parser.add_argument('--flickr', type=str, default='true', help='Download from flickr.com (boolean)')
     parser.add_argument('--naver', type=str, default='true', help='Download from naver.com (boolean)')
     parser.add_argument('--full', type=str, default='false',
                         help='Download full resolution image instead of thumbnails (slow)')
@@ -360,7 +360,7 @@ if __name__ == '__main__':
 
     _skip = False if str(args.skip).lower() == 'false' else True
     _threads = args.threads
-    _flickr = False if str(args.google).lower() == 'false' else True
+    _flickr = False if str(args.flickr).lower() == 'false' else True
     _naver = False if str(args.naver).lower() == 'false' else True
     _full = False if str(args.full).lower() == 'false' else True
     _face = False if str(args.face).lower() == 'false' else True
@@ -376,7 +376,7 @@ if __name__ == '__main__':
         _no_gui = False
 
     print(
-        'Options - skip:{}, threads:{}, google:{}, naver:{}, full_resolution:{}, face:{}, no_gui:{}, limit:{}, _proxy_list:{}'
+        'Options - skip:{}, threads:{}, flickr:{}, naver:{}, full_resolution:{}, face:{}, no_gui:{}, limit:{}, _proxy_list:{}'
             .format(_skip, _threads, _flickr, _naver, _full, _face, _no_gui, _limit, _proxy_list))
 
     crawler = AutoCrawler(skip_already_exist=_skip, n_threads=_threads,
