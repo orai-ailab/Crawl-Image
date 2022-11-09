@@ -11,7 +11,7 @@ app = FastAPI(
 )
 
 @app.post("/naver")
-async def naver(input_source_hash: str = Form(description='ipfs hash')):
+async def naver(label: str = Form(description='label text')):
     url = "https://gateway.ipfs.airight.io/ipfs/"+input_source_hash
     writer = PdfFileWriter()
     remoteFile = urlopen(Request(url)).read()
