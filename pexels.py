@@ -15,12 +15,9 @@ Copyright 2022 hoangks5
 """
 
 
-# Import API class from pexels_api package
 from pexels_api import API
-# Type your Pexels API
 import os
 from dotenv import load_dotenv
-
 load_dotenv()
 
 PEXELS_API_KEY = os.getenv('PEXELS_API_KEY')
