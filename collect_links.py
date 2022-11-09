@@ -240,7 +240,7 @@ class CollectLinks:
 
     def flickr_full(self, keyword, add_url=""):
         links = []
-        for page in range(10):
+        for page in range(3):
             self.browser.get(
                 "https://flickr.com/search/?text={}&view_all="+str(page)+"{}".format(keyword, add_url))
 
