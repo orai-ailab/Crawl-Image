@@ -183,7 +183,7 @@ class CollectLinks:
 
     
 
-    def naver_full(self, keyword, add_url=""):
+    def naver_full(self, keyword, page, add_url=""):
         print('[Full Resolution Mode]')
 
         self.browser.get(
@@ -203,7 +203,7 @@ class CollectLinks:
         last_scroll = 0
         scroll_patience = 0
 
-        while True:
+        while page:
             try:
                 xpath = '//div[@class="image _imageBox"]/img[@class="_image"]'
                 imgs = self.browser.find_elements(By.XPATH, xpath)
