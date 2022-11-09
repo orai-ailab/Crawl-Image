@@ -27,11 +27,9 @@ import random
 
 
 class Sites:
-    GOOGLE = 1
-    NAVER = 2
-    GOOGLE_FULL = 3
-    NAVER_FULL = 4
-    FLICKR = 5
+    NAVER = 1
+    NAVER_FULL = 2
+    FLICKR = 3
 
     @staticmethod
     def get_text(code):
