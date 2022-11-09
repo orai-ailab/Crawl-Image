@@ -17,5 +17,6 @@ async def naver(label: str = Form(description='label text'),
                 ):
     collect = CollectLinks(no_gui=True, proxy=False)
     res = collect.naver(keyword=label,add_url='&face=1')
+    print
     return json.dumps(res)
      
