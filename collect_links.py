@@ -202,5 +202,5 @@ class CollectLinks:
 
 if __name__ == '__main__':
     collect = CollectLinks()
-    links = collect.naver_full('hoangks5')
+    links = collect.naver('hoangks5')
     print(len(links), links)
