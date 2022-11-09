@@ -88,6 +88,7 @@ def __init__(no_gui=False, proxy=None):
             print(
                 'Download correct version at "http://chromedriver.chromium.org/downloads" and place in "./chromedriver"')
         print('_________________________________')
+        return browser
 
 
 
