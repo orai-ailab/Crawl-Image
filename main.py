@@ -77,6 +77,7 @@ class AutoCrawler:
 
         self.skip = skip_already_exist
         self.n_threads = n_threads
+        self.do_pexels = do_pexels
         self.do_flickr = do_flickr
         self.do_naver = do_naver
         self.download_path = download_path
