@@ -75,4 +75,4 @@ You can make your own crawler by changing collect_links.py
 
 # Issues
 
-As google site consistently changes, please make issues if it doesn't work.
+As flickr, naver site consistently changes, please make issues if it doesn't work.
