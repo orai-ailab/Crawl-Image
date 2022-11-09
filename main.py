@@ -55,6 +55,8 @@ class Sites:
             return ""
         if code == Sites.NAVER or Sites.NAVER_FULL:
             return "&face=1"
+        if code == Sites.PEXELS or Sites.PEXELS_FULL:
+            return ""
 
 
 class AutoCrawler:
