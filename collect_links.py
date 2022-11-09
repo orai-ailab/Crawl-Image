@@ -291,6 +291,7 @@ class CollectLinks:
             photos = api.get_entries()
             for photo in photos:
                 links.append(photo.original)
+        links = self.remove_duplicates(links)
 
 
 
