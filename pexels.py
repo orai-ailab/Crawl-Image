@@ -29,7 +29,3 @@ for i in range(1,50,1):
     photos = api.get_entries()
     for photo in photos:
         list.append(photo.original)
-string = '\n'.join(list)
-with open('pexels.txt','w',encoding='utf-8') as f:
-    f.write(string)
-    f.close()
