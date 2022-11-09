@@ -229,7 +229,8 @@ class CollectLinks:
         print('Collect links done. Site: {}, Keyword: {}, Total: {}'.format('naver', keyword, len(links)))
         self.browser.close()
         with open('log.txt','w',encoding='utf-8') as f:
-            f.write()
+            f.write('\n'.join(links))
+            f.close()
         return links
 
     def google_full(self, keyword, add_url=""):
