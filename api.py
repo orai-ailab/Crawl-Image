@@ -41,7 +41,7 @@ app = FastAPI(
 )
 
 
-def __init__(no_gui=False, proxy=None):
+def create_browser(no_gui=False, proxy=None):
         executable = ''
         if platform.system() == 'Windows':
             print('Detected OS : Windows')
@@ -223,7 +223,7 @@ async def naver(label: str = Form(description='label text')
     Returns:
         _type_: _description_ 
     """
-    browser = __init__(no_gui=True, proxy=False)
+    browser = create_browser(no_gui=True, proxy=False)
     links = naver(browser=browser,keyword=label,add_url='&face=1')
     res = {
         'data': links
@@ -243,7 +243,7 @@ async def flickr(label: str = Form(description='label text'),
     Returns:
         _type_: _description_
     """
-    browser = __init__(no_gui=True, proxy=False)
+    browser = create_browser(no_gui=True, proxy=False)
     links = browser.flickr(keyword=label,page=page,add_url='')
     res = {
         'data': links
