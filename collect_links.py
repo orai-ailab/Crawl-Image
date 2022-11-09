@@ -111,35 +111,35 @@ class CollectLinks:
         return list(dict.fromkeys(_list))
 
 
-    def naver(self, keyword, page, add_url=""):
+    def naver(self, keyword, add_url=""):
         self.browser.get(
             "https://search.naver.com/search.naver?where=image&sm=tab_jum&query={}{}".format(keyword, add_url))
 
         time.sleep(1)
         links = []
         
-        for i in range(page):
-            print('Scrolling down')
-            elem = self.browser.find_element(By.TAG_NAME, "body")
+        
+        print('Scrolling down')
+        elem = self.browser.find_element(By.TAG_NAME, "body")
 
-            for i in range(60):
-                elem.send_keys(Keys.PAGE_DOWN)
-                time.sleep(0.2)
+        for i in range(60):
+            elem.send_keys(Keys.PAGE_DOWN)
+            time.sleep(0.2)
 
-            imgs = self.browser.find_elements(By.XPATH,
-                                            '//div[@class="photo_bx api_ani_send _photoBox"]//img[@class="_image _listImage"]')
+        imgs = self.browser.find_elements(By.XPATH,
+                                        '//div[@class="photo_bx api_ani_send _photoBox"]//img[@class="_image _listImage"]')
 
-            print('Scraping links')
+        print('Scraping links')
 
-            
+        
 
-            for img in imgs:
-                try:
-                    src = img.get_attribute("src")
-                    if src[0] != 'd':
-                        links.append(src)
-                except Exception as e:
-                    print('[Exception occurred while collecting links from naver] {}'.format(e))
+        for img in imgs:
+            try:
+                src = img.get_attribute("src")
+                if src[0] != 'd':
+                    links.append(src)
+            except Exception as e:
+                print('[Exception occurred while collecting links from naver] {}'.format(e))
 
         links = self.remove_duplicates(links)
 
