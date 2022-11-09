@@ -34,9 +34,7 @@ class Sites:
 
     @staticmethod
     def get_text(code):
-        if code == Sites.GOOGLE:
-            return 'google'
-        elif code == Sites.NAVER:
+        if code == Sites.NAVER:
             return 'naver'
         elif code == Sites.GOOGLE_FULL:
             return 'google'
