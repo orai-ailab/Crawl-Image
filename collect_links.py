@@ -292,7 +292,7 @@ class CollectLinks:
             for photo in photos:
                 links.append(photo.original)
         links = self.remove_duplicates(links)
-
+        return links
 
 
 
