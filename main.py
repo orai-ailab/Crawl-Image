@@ -273,9 +273,9 @@ class AutoCrawler:
 
             if self.do_flickr and not flickr_done:
                 if self.full_resolution:
-                    tasks.append([keyword, Sites.GOOGLE_FULL])
+                    tasks.append([keyword, Sites.FLICKR])
                 else:
-                    tasks.append([keyword, Sites.GOOGLE])
+                    tasks.append([keyword, Sites.FLICKR])
 
             if self.do_naver and not naver_done:
                 if self.full_resolution:
