@@ -273,7 +273,7 @@ class AutoCrawler:
 
             if self.do_flickr and not flickr_done:
                 if self.full_resolution:
-                    tasks.append([keyword, Sites.FLICKR])
+                    tasks.append([keyword, Sites.FLICKR_FULL])
                 else:
                     tasks.append([keyword, Sites.FLICKR])
 
