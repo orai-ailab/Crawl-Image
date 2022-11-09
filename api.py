@@ -48,3 +48,24 @@ async def flickr(label: str = Form(description='label text'),
         'data': links
     }
     return res
+
+
+@app.post("/pexels")
+async def pexels(label: str = Form(description='label text'),
+                 page: int = Form(description='1 page =~ 80 image')
+                ):
+    """Crawl Image From Pexels.com
+
+    Args:
+        label (str, optional): _description_. Defaults to Form(description='label text').
+        page (int, optional): _description_. Defaults to Form(description='number page').
+
+    Returns:
+        _type_: _description_
+    """
+    collect = CollectLinks(no_gui=True, proxy=False)
+    links = collect.pexels(keyword=label,page=page,add_url='')
+    res = {
+        'data': links
+    }
+    return res
