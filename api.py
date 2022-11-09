@@ -34,7 +34,7 @@ async def flickr(label: str = Form(description='label text'),
                  page: int = Form(description='number page')
                 ):
     collect = CollectLinks(no_gui=True, proxy=False)
-    links = collect.flickr(keyword=label,add_url='&face=1')
+    links = collect.flickr(keyword=label,add_url='')
     res = {
         'data': links
     }
