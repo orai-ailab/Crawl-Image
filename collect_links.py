@@ -293,6 +293,20 @@ class CollectLinks:
                 links.append(photo.original)
         links = self.remove_duplicates(links)
         return links
+    
+    def pexels_full(self, keyword, add_url=""):
+    
+        PEXELS_API_KEY = os.getenv('PEXELS_API_KEY')
+        api = API(PEXELS_API_KEY)
+        links = []
+
+        for i in range(1,50,1):
+            api.search(keyword, page=i, results_per_page=80)
+            photos = api.get_entries()
+            for photo in photos:
+                links.append(photo.original)
+        links = self.remove_duplicates(links)
+        return links
 
 
 
