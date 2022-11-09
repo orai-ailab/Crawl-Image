@@ -282,6 +282,7 @@ class AutoCrawler:
             dir_name = '{}/{}'.format(self.download_path, keyword)
             flickr_done = os.path.exists(os.path.join(os.getcwd(), dir_name, 'flickr_done'))
             naver_done = os.path.exists(os.path.join(os.getcwd(), dir_name, 'naver_done'))
+            pexels_done = os.path.exists(os.path.join(os.getcwd(), dir_name, 'pexels_done'))
             if flickr_done and naver_done and self.skip:
                 print('Skipping done task {}'.format(dir_name))
                 continue
