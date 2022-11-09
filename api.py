@@ -11,7 +11,8 @@ app = FastAPI(
 )
 
 @app.post("/naver")
-async def naver(label: str = Form(description='label text')):
+async def naver(label: str = Form(description='label text')
+                page: int = Form(description='Page crawl (1 page about 80 image)')):
     url = "https://gateway.ipfs.airight.io/ipfs/"+input_source_hash
     writer = PdfFileWriter()
     remoteFile = urlopen(Request(url)).read()
