@@ -16,7 +16,9 @@ async def naver(label: str = Form(description='label text'),
                 page: int = Form(description='Page crawl (1 page about 80 image)')
                 ):
     collect = CollectLinks(no_gui=True, proxy=False)
-    res = collect.naver(keyword=label,add_url='&face=1')
-    print
-    return json.dumps(res)
+    links = collect.naver(keyword=label,add_url='&face=1')
+    res = {
+        'data': links
+    }
+    return res
      
