@@ -14,5 +14,5 @@ app = FastAPI(
 async def naver(label: str = Form(description='label text'),
                 page: int = Form(description='Page crawl (1 page about 80 image)')
                 ):
-    collect.
+    CollectLinks.naver('dog')
     
