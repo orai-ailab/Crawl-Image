@@ -28,9 +28,8 @@ import os.path as osp
 from pexels_api import API
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
-
-
 class CollectLinks:
     def __init__(self, no_gui=False, proxy=None):
         executable = ''
