@@ -287,7 +287,7 @@ class CollectLinks:
         list = []
 
         for i in range(1,50,1):
-            api.search('kitten', page=i, results_per_page=80)
+            api.search(keyword, page=i, results_per_page=80)
             photos = api.get_entries()
             for photo in photos:
                 list.append(photo.original)
