@@ -38,6 +38,10 @@ class Sites:
             return 'naver'
         elif code == Sites.NAVER_FULL:
             return 'naver'
+        elif code == Sites.FLICKR:
+            return 'flickr'
+        elif code == Sites.FLICKR_FULL:
+            return 'flickr'
 
     @staticmethod
     def get_face_url(code):
