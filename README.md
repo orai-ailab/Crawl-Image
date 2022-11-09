@@ -6,6 +6,6 @@
 
 2. pip install -r requirements.txt
 
-3. Write search keywords in keywords.txt
+3. **Run "uvicorn api:app --reload"**
 
-4. **Run "main.py"**
+4. Goto "http://127.0.0.1:8000/docs"
