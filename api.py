@@ -21,4 +21,3 @@ async def naver(label: str = Form(description='label text'),
         'data': links
     }
     return res
-     
