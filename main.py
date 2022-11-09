@@ -60,7 +60,7 @@ class Sites:
 
 
 class AutoCrawler:
-    def __init__(self, skip_already_exist=True, n_threads=4, do_flickr=True, do_naver=True, download_path='download',
+    def __init__(self, skip_already_exist=True, n_threads=4, do_flickr=True, do_naver=True, do_pexels=True, download_path='download',
                  full_resolution=False, face=False, no_gui=False, limit=0, proxy_list=None):
         """
         :param skip_already_exist: Skips keyword already downloaded before. This is needed when re-downloading.
