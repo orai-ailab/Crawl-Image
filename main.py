@@ -244,12 +244,16 @@ class AutoCrawler:
 
             elif site_code == Sites.NAVER:
                 links = collect.naver(keyword, add_url)
+                
+            elif site_code == Sites.PEXELS:
+                links = collect.pexels(keyword, add_url)
 
             elif site_code == Sites.FLICKR_FULL:
                 links = collect.flickr_full(keyword, add_url)
 
             elif site_code == Sites.NAVER_FULL:
                 links = collect.naver_full(keyword, add_url)
+                
             elif site_code == Sites.PEXELS_FULL:
                 links = collect.pexels_full(keyword, add_url)
 
