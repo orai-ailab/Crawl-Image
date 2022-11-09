@@ -264,7 +264,7 @@ async def pexels(label: str = Form(description='label text'),
     Returns:
         _type_: _description_
     """
-    links = pexels(keyword=label,page=page,add_url='')
+    links = pexels(keyword=label,page=page)
     res = {
         'data': links
     }
