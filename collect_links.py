@@ -141,11 +141,11 @@ class CollectLinks:
                 except Exception as e:
                     print('[Exception occurred while collecting links from naver] {}'.format(e))
 
-            links = self.remove_duplicates(links)
+        links = self.remove_duplicates(links)
 
-            print('Collect links done. Site: {}, Keyword: {}, Total: {}'.format('naver', keyword, len(links)))
-            self.browser.close()
-            return links
+        print('Collect links done. Site: {}, Keyword: {}, Total: {}'.format('naver', keyword, len(links)))
+        self.browser.close()
+        return links
 
     def flickr(self, keyword, add_url=""):
         self.browser.get(
