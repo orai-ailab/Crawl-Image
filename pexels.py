@@ -21,15 +21,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 PEXELS_API_KEY = os.getenv('PEXELS_API_KEY')
-# Create API object
 api = API(PEXELS_API_KEY)
 list = []
-# Search five 'kitten' photos
+
 for i in range(1,50,1):
     api.search('kitten', page=i, results_per_page=80)
-    # Get photo entries
     photos = api.get_entries()
-    # Loop the five photos
     for photo in photos:
         list.append(photo.original)
 string = '\n'.join(list)
