@@ -120,7 +120,7 @@ def remove_duplicates(_list):
     return list(dict.fromkeys(_list))
 
 
-def naver(browser, keyword, add_url=""):
+def naver_(browser, keyword, add_url=""):
     browser.get(
         "https://search.naver.com/search.naver?where=image&sm=tab_jum&query={}{}".format(keyword, add_url))
 
@@ -161,7 +161,7 @@ def naver(browser, keyword, add_url=""):
 
     
 
-def flickr(browser, keyword, page, add_url=""):
+def flickr_(browser, keyword, page, add_url=""):
     links = []
     for i in range(page):
         browser.get(
@@ -194,7 +194,7 @@ def flickr(browser, keyword, page, add_url=""):
     return links
 
 
-def pexels(keyword, page):
+def pexels_(keyword, page):
     PEXELS_API_KEY = os.getenv('PEXELS_API_KEY')
     api = API(PEXELS_API_KEY)
     links = []
@@ -224,7 +224,7 @@ async def naver(label: str = Form(description='label text')
         _type_: _description_ 
     """
     browser = create_browser(no_gui=True, proxy=False)
-    links = naver(browser=browser,keyword=label,add_url='&face=1')
+    links = naver_(browser=browser,keyword=label,add_url='&face=1')
     res = {
         'data': links
     }
@@ -244,7 +244,7 @@ async def flickr(label: str = Form(description='label text'),
         _type_: _description_
     """
     browser = create_browser(no_gui=True, proxy=False)
-    links = browser.flickr(keyword=label,page=page,add_url='')
+    links = flickr_(browser=browser,keyword=label,page=page,add_url='')
     res = {
         'data': links
     }
@@ -264,7 +264,7 @@ async def pexels(label: str = Form(description='label text'),
     Returns:
         _type_: _description_
     """
-    links = pexels(keyword=label,page=page)
+    links = pexels_(keyword=label,page=page)
     res = {
         'data': links
     }
