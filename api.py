@@ -12,7 +12,7 @@ app = FastAPI(
 )
 
 @app.post("/naver")
-"""Crawl from Naver"""
+# Crawl from Naver
 async def naver(label: str = Form(description='label text')
                 ):
     collect = CollectLinks(no_gui=False, proxy=False)
