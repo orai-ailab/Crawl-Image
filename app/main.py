@@ -41,22 +41,7 @@ app = FastAPI(
 
 
 def create_browser(no_gui=False, proxy=None):
-        '''   executable = ''
-        if platform.system() == 'Windows':
-            print('Detected OS : Windows')
-            executable = './chromedriver/chromedriver_win.exe'
-        elif platform.system() == 'Linux':
-            print('Detected OS : Linux')
-            executable = './chromedriver/chromedriver_linux'
-        elif platform.system() == 'Darwin':
-            print('Detected OS : Mac')
-            executable = './chromedriver/chromedriver_mac'
-        else:
-            raise OSError('Unknown OS Type')
-
-        if not osp.exists(executable):
-            raise FileNotFoundError('Chromedriver file should be placed at {}'.format(executable))
-        '''
+        
         chrome_options = Options()
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
@@ -64,7 +49,7 @@ def create_browser(no_gui=False, proxy=None):
             chrome_options.add_argument('--headless')
         if proxy:
             chrome_options.add_argument("--proxy-server={}".format(proxy))
-        browser = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
+        browser = webdriver.Chrome(executable_path='./chromefriver/chromedriver_linux', chrome_options=chrome_options)
 
         browser_version = 'Failed to detect version'
         chromedriver_version = 'Failed to detect version'
