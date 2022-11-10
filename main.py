@@ -30,7 +30,6 @@ import os
 from dotenv import load_dotenv
 from fastapi import FastAPI, Form
 load_dotenv()
-
 app = FastAPI(
     title="API for AI Market",
     description="",
@@ -268,5 +267,4 @@ async def pexels(label: str = Form(description='label text'),
     res = {
         'data': links
     }
-    print(len(links))
     return res
