@@ -2,7 +2,7 @@
 
 # How to use
 
-1. git clone 
+1. git clone https://github.com/orai-ailab/Crawl-Image.git
 
 2. pip install -r requirements.txt
 
