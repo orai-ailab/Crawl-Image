@@ -41,7 +41,7 @@ app = FastAPI(
 
 
 def create_browser(no_gui=False, proxy=None):
-        executable = ''
+        '''   executable = ''
         if platform.system() == 'Windows':
             print('Detected OS : Windows')
             executable = './chromedriver/chromedriver_win.exe'
@@ -56,7 +56,7 @@ def create_browser(no_gui=False, proxy=None):
 
         if not osp.exists(executable):
             raise FileNotFoundError('Chromedriver file should be placed at {}'.format(executable))
-
+        '''
         chrome_options = Options()
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
