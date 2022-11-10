@@ -8,3 +8,4 @@ pexels-api
 fastapi
 uvicorn
 python-multipart
+packaging
