@@ -14,4 +14,4 @@
 
 6. Goto http://127.0.0.1/docs#/
 
-![My Image](img/Screenshot%202022-11-10%20at%2011.40.25%20(2))
+![My Image](img/Screenshot%202022-11-10%20at%2011.40.25%20(2).png)
