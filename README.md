@@ -4,10 +4,12 @@
 
 1. git clone https://github.com/orai-ailab/Crawl-Image.git
 
-2. pip install -r requirements.txt
+2. cd Crawl-Image
 
-3. docker build -t myimage .
+3. pip install -r requirements.txt
 
-4. docker run -d --name mycontainer -p 80:80 myimage
+4. docker build -t myimage .
 
-5. Goto http://127.0.0.1/docs#/
+5. docker run -d --name mycontainer -p 80:80 myimage
+
+6. Goto http://127.0.0.1/docs#/
