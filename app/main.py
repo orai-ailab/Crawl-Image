@@ -49,7 +49,7 @@ def create_browser(no_gui=False, proxy=None):
             chrome_options.add_argument('--headless')
         if proxy:
             chrome_options.add_argument("--proxy-server={}".format(proxy))
-        browser = webdriver.Chrome(executable_path='./chromefriver/chromedriver_linux', chrome_options=chrome_options)
+        browser = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
 
         browser_version = 'Failed to detect version'
         chromedriver_version = 'Failed to detect version'
