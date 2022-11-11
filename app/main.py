@@ -196,7 +196,7 @@ def pexels_(keyword, page):
 
 
 
-@app.post("/naver")
+@app.post("crawl/naver")
 async def naver(label: str = Form(description='label text')
                 ):
     """Crawl Image From Naver.com (~ 400 image)
@@ -214,7 +214,7 @@ async def naver(label: str = Form(description='label text')
     }
     return res
 
-@app.post("/flickr")
+@app.post("crawl/flickr")
 async def flickr(label: str = Form(description='label text'),
                  page: int = Form(description='1 page =~ 200-300 image')
                 ):
@@ -235,7 +235,7 @@ async def flickr(label: str = Form(description='label text'),
     return res
 
 
-@app.post("/pexels")
+@app.post("crawl/pexels")
 async def pexels(label: str = Form(description='label text'),
                  page: int = Form(description='1 page =~ 80 image')
                 ):
