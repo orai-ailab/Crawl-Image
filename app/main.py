@@ -31,7 +31,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, Form
 load_dotenv()
 app = FastAPI(
-    title="API for AI Market",
+    title="API Crawl",
     description="",
     version="1.0",
     docs_url='crawl/docs',
