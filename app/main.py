@@ -34,9 +34,9 @@ app = FastAPI(
     title="API Crawl",
     description="",
     version="1.0",
-    docs_url='crawl/docs',
+    docs_url='/crawl/docs',
     openapi_url='/openapi.json', # This line solved my issue, in my case it was a lambda function
-    redoc_url='crawl/redoc'
+    redoc_url='/crawl/redoc'
 )
 
 
@@ -196,7 +196,7 @@ def pexels_(keyword, page):
 
 
 
-@app.post("crawl/naver")
+@app.post("/crawl/naver")
 async def naver(label: str = Form(description='label text')
                 ):
     """Crawl Image From Naver.com (~ 400 image)
@@ -214,7 +214,7 @@ async def naver(label: str = Form(description='label text')
     }
     return res
 
-@app.post("crawl/flickr")
+@app.post("/crawl/flickr")
 async def flickr(label: str = Form(description='label text'),
                  page: int = Form(description='1 page =~ 200-300 image')
                 ):
@@ -235,7 +235,7 @@ async def flickr(label: str = Form(description='label text'),
     return res
 
 
-@app.post("crawl/pexels")
+@app.post("/crawl/pexels")
 async def pexels(label: str = Form(description='label text'),
                  page: int = Form(description='1 page =~ 80 image')
                 ):
