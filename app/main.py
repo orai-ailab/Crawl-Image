@@ -152,7 +152,7 @@ def flickr_(browser, keyword, page, add_url=""):
             "https://flickr.com/search/?text="+keyword+"&view_all="+str(page)+add_url)
 
         time.sleep(1)
-        print('Scrolling down')
+        print('Scrolling down') 
 
         elem = browser.find_element(By.TAG_NAME, "body")
 
