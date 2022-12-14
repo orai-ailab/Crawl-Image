@@ -29,6 +29,7 @@ from pexels_api import API
 import os
 from dotenv import load_dotenv
 from fastapi import FastAPI, Form
+from mangum import Mangum
 load_dotenv()
 app = FastAPI(
     title="API Crawl",
