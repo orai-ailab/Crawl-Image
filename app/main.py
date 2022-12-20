@@ -29,7 +29,6 @@ from pexels_api import API
 import os
 from dotenv import load_dotenv
 from fastapi import FastAPI, Form
-from mangum import Mangum
 load_dotenv()
 app = FastAPI(
     title="API Crawl",
@@ -39,7 +38,6 @@ app = FastAPI(
     openapi_url='/openapi.json', # This line solved my issue, in my case it was a lambda function
     redoc_url='/crawl/redoc'
 )
-handler = Mangum(app)
 
 def create_browser(no_gui=False, proxy=None):
         
